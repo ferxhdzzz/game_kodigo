@@ -159,7 +159,7 @@ class JuegoAdivinaCancionClean:
         self.lbl_pista2.pack(fill="x", pady=2)
 
         self.btn_pista = tk.Button(
-            self.card, text="Ver pistas (-2 pts)", font=("Segoe UI", 9),
+            self.card, text="Ver pistas (-3 pts)", font=("Segoe UI", 9),
             bg=self.LIGHT_BLUE, fg=self.ACCENT_BLUE, bd=0, padx=10, pady=4, cursor="hand2",
             command=self.revelar_pista
         )
