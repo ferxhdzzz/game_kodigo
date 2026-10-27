@@ -218,12 +218,12 @@ class JuegoAdivinaCancionClean:
             # Evaluación final de puntaje (Umbral de 60 puntos)
             if self.puntaje >= 60:
                 messagebox.showinfo(
-                    "¡Juego Ganado! 🎉",
+                    "¡Juego Ganado! :D",
                     f"¡Felicidades! Lograste {self.puntaje} puntos de 100 posibles.\n¡Demostraste un gran conocimiento musical!"
                 )
             else:
                 messagebox.showerror(
-                    "Juego Perdido ❌",
+                    "Juego Perdido :()",
                     f"Obtuviste {self.puntaje} puntos.\nNecesitabas al menos 60 puntos para ganar. ¡Inténtalo de nuevo!"
                 )
             pygame.mixer.quit()
@@ -252,7 +252,7 @@ class JuegoAdivinaCancionClean:
             pygame.mixer.music.stop()
             puntos_ganados = 10 if not self.pista_revelada else 7
             self.puntaje += puntos_ganados
-            messagebox.showinfo("¡Correcto!", f"✨ ¡Excelente! Es '{respuesta_correcta}'.\n+{puntos_ganados} puntos.")
+            messagebox.showinfo("¡Correcto!", f"¡Cool! Es '{respuesta_correcta}'.\n+{puntos_ganados} puntos.")
             self.indice_actual += 1
             self.lbl_puntaje.config(text=f"Puntos: {self.puntaje}")
             self.cargar_cancion()
@@ -264,10 +264,10 @@ class JuegoAdivinaCancionClean:
             self.botones_opciones[indice_seleccionado].config(state=tk.DISABLED, bg="#FEE2E2", fg="#991B1B")
 
             if self.intentos_restantes > 0:
-                messagebox.showwarning("Incorrecto", "❌ Respuesta equivocada. Te queda 1 intento para esta canción.")
+                messagebox.showwarning("Incorrecto", " Respuesta equivocada. Te queda 1 intento para esta canción.")
             else:
                 pygame.mixer.music.stop()
-                messagebox.showerror("Sin Intentos", f"💥 Perdiste esta ronda. La canción era '{respuesta_correcta}'.")
+                messagebox.showerror("Sin Intentos", f" Perdiste esta ronda. La canción era '{respuesta_correcta}'.")
                 self.indice_actual += 1
                 self.cargar_cancion()
 
