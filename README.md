@@ -23,6 +23,26 @@ múltiples con distractores reales del mismo artista.
 
 ---
 
+
+##  Ficha Técnica de la actualizacion
+
+| Atributo | Detalle |
+| :--- | :--- |
+| **Nombre del Proyecto** | Guess The Track — Agentic Edition |
+| **Versión** | 2.0.0 (Refactorización Modular basada en Agentes y Skills) |
+| **Tipo de Aplicación** | Juego interactivo de trivia musical de escritorio con asistente IA |
+| **Patrón Arquitectónico** | Arquitectura Desacoplada por Capas (Configuración → Skills → Agente → UI) |
+| **Lenguaje Principal** | Python 3.10+ (probado en Python 3.13) |
+| **Interfaz Gráfica (UI)** | `Tkinter` (Light Mode minimalista desacoplado de la lógica de negocio) |
+| **Motor Multimedia** | `Pygame Mixer` (encapsulado en `AudioPlayerSkill`, reproducción bajo demanda) |
+| **Integración LLM / IA** | SDK `google-genai` (`gemini-2.5-flash`) con respaldo determinista local (*fallback*) |
+| **Agente Implementado** | `MusicHostAgent` ("DJ Nova"), configurable vía `config/agent_persona.json` |
+| **Skills Encapsuladas** | `AudioPlayerSkill`, `ScoringAndRulesSkill`, `MusicTriviaSkill` |
+| **Reglas de Negocio** | 10 rondas • 4 opciones del mismo artista • 2 intentos/ronda • Umbral de victoria: ≥ 60/100 pts |
+| **Formatos Soportados** | Audio `.mp3` / `.wav` (entrada) • Configuración `.json` |
+| **Dependencias Externas** | `pygame`, `google-genai` (opcional para pistas generativas) |
+
+
 ##  Estructura del Repositorio
 
 ```text
@@ -51,21 +71,3 @@ GuessTheTrack/
 ├── main.py                     # Capa de presentación (UI en Tkinter) desacoplada de la lógica
 ├── requirements.txt            # Dependencias del proyecto (pygame, google-genai)
 └── README.md                   # Documentación técnica y guía de ejecución
-
-##  Ficha Técnica de la actualizacion
-
-| Atributo | Detalle |
-| :--- | :--- |
-| **Nombre del Proyecto** | Guess The Track — Agentic Edition |
-| **Versión** | 2.0.0 (Refactorización Modular basada en Agentes y Skills) |
-| **Tipo de Aplicación** | Juego interactivo de trivia musical de escritorio con asistente IA |
-| **Patrón Arquitectónico** | Arquitectura Desacoplada por Capas (Configuración → Skills → Agente → UI) |
-| **Lenguaje Principal** | Python 3.10+ (probado en Python 3.13) |
-| **Interfaz Gráfica (UI)** | `Tkinter` (Light Mode minimalista desacoplado de la lógica de negocio) |
-| **Motor Multimedia** | `Pygame Mixer` (encapsulado en `AudioPlayerSkill`, reproducción bajo demanda) |
-| **Integración LLM / IA** | SDK `google-genai` (`gemini-2.5-flash`) con respaldo determinista local (*fallback*) |
-| **Agente Implementado** | `MusicHostAgent` ("DJ Nova"), configurable vía `config/agent_persona.json` |
-| **Skills Encapsuladas** | `AudioPlayerSkill`, `ScoringAndRulesSkill`, `MusicTriviaSkill` |
-| **Reglas de Negocio** | 10 rondas • 4 opciones del mismo artista • 2 intentos/ronda • Umbral de victoria: ≥ 60/100 pts |
-| **Formatos Soportados** | Audio `.mp3` / `.wav` (entrada) • Configuración `.json` |
-| **Dependencias Externas** | `pygame`, `google-genai` (opcional para pistas generativas) |
